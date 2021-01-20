@@ -9,6 +9,8 @@ namespace GBlog.Models
 {
     public class Blog
     {
+        //test
+
         public virtual int BlogId { get; set; }
         
         [Required]
