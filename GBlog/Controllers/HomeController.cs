@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GBlog.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,23 +9,13 @@ namespace GBlog.Controllers
 {
     public class HomeController : Controller
     {
+        private GBlogContext db = new GBlogContext();
+
+        // GET: Blogs
         public ActionResult Index()
         {
-            return View();
+            return View(db.Blogs.OrderBy(b => b.CreatedOn).FirstOrDefault());
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
